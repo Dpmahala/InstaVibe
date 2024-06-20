@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:new_insta_ui/screens/profile_screen.dart';
-import 'package:new_insta_ui/screens/signup_screen.dart';
+import 'package:new_insta_ui/screens/ProfileScreen/profile_screen.dart';
+import 'package:new_insta_ui/screens/SignUpScreen/signup_screen.dart';
 import 'package:new_insta_ui/screens/splash_screen.dart';
-import 'screens/login_screen.dart';
+import 'screens/LoginScreen/login_screen.dart';
 
 void main() {
   runApp(const MyApp());

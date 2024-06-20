@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:new_insta_ui/widgets/input_text_widget.dart';
+
+import '../../commponent/widgets/input_text_widget.dart';
 
 class LoginScreen extends StatelessWidget {
    LoginScreen({super.key});
@@ -152,6 +153,4 @@ class LoginScreen extends StatelessWidget {
       ),
     );
   }
- 
- 
 }
