@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:new_insta_ui/widgets/input_text_widget.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../../commponent/widgets/input_text_widget.dart';
 
 class SignupScreen extends StatelessWidget {
    SignupScreen({super.key});
@@ -100,6 +100,7 @@ TextEditingController _emailController = TextEditingController();
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
+
                         "Log in with Facebook",
                         style: TextStyle(
                           color: Colors.blue,
@@ -150,6 +151,5 @@ TextEditingController _emailController = TextEditingController();
         ),
       ),
     );
-  
   }
 }
