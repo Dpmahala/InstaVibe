@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen>
           children: [
             const Spacer(),
             SvgPicture.asset(
-              "assets/images/splash_icon.svg",
+              "assets/images/applogo.svg",
               height: 80.h,
             ),
             const Spacer(),
