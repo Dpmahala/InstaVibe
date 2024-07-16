@@ -10,6 +10,7 @@ class InputTextWidget extends StatelessWidget {
     this.withOpacity,
     this.borderRadius,
     this.fillColor,
+    this.focusNode,
   });
 
   final TextEditingController controller;
@@ -19,6 +20,7 @@ class InputTextWidget extends StatelessWidget {
   final double? withOpacity;
   final double? borderRadius;
   final Color? fillColor;
+  final FocusNode? focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -34,18 +36,15 @@ class InputTextWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
         ),
         enabledBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color:  borderColor),
+          borderSide: BorderSide(color: borderColor),
           borderRadius: BorderRadius.circular(12),
         ),
         disabledBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color:borderColor),
+          borderSide: BorderSide(color: borderColor),
           borderRadius: BorderRadius.circular(12),
         ),
         focusedBorder: OutlineInputBorder(
-          borderSide:
-              BorderSide(color: borderColor),
+          borderSide: BorderSide(color: borderColor),
           borderRadius: BorderRadius.circular(12),
         ),
       ),

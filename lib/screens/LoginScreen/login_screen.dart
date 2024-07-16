@@ -1,13 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:new_insta_ui/screens/HomeScreen/home_screen.dart';
+import 'package:new_insta_ui/screens/SignUpScreen/signup_screen.dart';
 
 import '../../commponent/widgets/input_text_widget.dart';
 
-class LoginScreen extends StatelessWidget {
-   LoginScreen({super.key});
- TextEditingController _nameController = TextEditingController();
+class LoginScreen extends StatefulWidget {
+  LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  TextEditingController _nameController = TextEditingController();
+
   TextEditingController _passwordController = TextEditingController();
+
+  final FocusNode _usernameFocusNode = FocusNode();
+  final FocusNode _passwordFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _passwordController.dispose();
+    _usernameFocusNode.dispose();
+    _passwordFocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +45,10 @@ class LoginScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset('assets/images/Instagram Logo.svg'),
+                  SvgPicture.asset(
+                    'assets/images/INSTAVIBE.svg',
+                    height: 28.h,
+                  ),
                   SizedBox(height: 22.h),
                   InputTextWidget(
                     controller: _nameController,
@@ -32,6 +56,7 @@ class LoginScreen extends StatelessWidget {
                     borderColor: const Color(0xff000000).withOpacity(.1),
                     hintStyle: TextStyle(color: Colors.black.withOpacity(.2)),
                     fillColor: const Color(0xffFAFAFA),
+                    focusNode: _usernameFocusNode,
                   ),
                   SizedBox(
                     height: 17.h,
@@ -40,8 +65,9 @@ class LoginScreen extends StatelessWidget {
                     controller: _passwordController,
                     hintText: "Password",
                     borderColor: const Color(0xff000000).withOpacity(.1),
-                                hintStyle: TextStyle(color: Colors.black),
+                    hintStyle: TextStyle(color: Colors.black),
                     fillColor: const Color(0xffFAFAFA),
+                    focusNode: _passwordFocusNode,
                   ),
                   SizedBox(height: 12.h),
                   Align(
@@ -56,19 +82,27 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 18.h),
-                  Container(
-                    padding: EdgeInsets.all(12.sp),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: const Color(0xff3797EF).withOpacity(.5),
-                        borderRadius: BorderRadius.circular(10.r)),
-                    child: Text(
-                      textAlign: TextAlign.center,
-                      "Log in",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w800,
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomeScreen()));
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(12.sp),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: const Color(0xff3797EF).withOpacity(.5),
+                          borderRadius: BorderRadius.circular(10.r)),
+                      child: Text(
+                        textAlign: TextAlign.center,
+                        "Log in",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
                     ),
                   ),
@@ -135,12 +169,22 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   width: 5.w,
                 ),
-                Text(
-                  "Sign up.",
-                  style: TextStyle(
-                    color: const Color(0xff262626),
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w600,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignupScreen(),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    "Sign up.",
+                    style: TextStyle(
+                      color: const Color(0xff262626),
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 )
               ],

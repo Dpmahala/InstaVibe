@@ -3,12 +3,28 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../commponent/widgets/input_text_widget.dart';
 
-class SignupScreen extends StatelessWidget {
-   SignupScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  SignupScreen({super.key});
 
+  @override
+  State<SignupScreen> createState() => _SignupScreenState();
+}
+
+class _SignupScreenState extends State<SignupScreen> {
   TextEditingController _nameController = TextEditingController();
-TextEditingController _passwordController = TextEditingController();
-TextEditingController _emailController = TextEditingController();
+
+  TextEditingController _passwordController = TextEditingController();
+
+  TextEditingController _emailController = TextEditingController();
+
+  @override
+  void initState() {
+    _emailController.clear();
+    _passwordController.clear();
+    _nameController.clear();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +40,10 @@ TextEditingController _emailController = TextEditingController();
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset('assets/images/Instagram Logo.svg'),
+                  SvgPicture.asset(
+                    'assets/images/INSTAVIBE.svg',
+                    height: 28.h,
+                  ),
                   SizedBox(height: 22.h),
                   InputTextWidget(
                     controller: _nameController,
@@ -36,7 +55,7 @@ TextEditingController _emailController = TextEditingController();
                   SizedBox(
                     height: 17.h,
                   ),
-                    InputTextWidget(
+                  InputTextWidget(
                     controller: _emailController,
                     hintText: "Email",
                     borderColor: const Color(0xff000000).withOpacity(.1),
@@ -54,19 +73,24 @@ TextEditingController _emailController = TextEditingController();
                     fillColor: const Color(0xffFAFAFA),
                   ),
                   SizedBox(height: 18.h),
-                  Container(
-                    padding: EdgeInsets.all(12.sp),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: const Color(0xff3797EF).withOpacity(.5),
-                        borderRadius: BorderRadius.circular(10.r)),
-                    child: Text(
-                      textAlign: TextAlign.center,
-                      "Sign up",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w800,
+                  GestureDetector(
+                    onTap: () {
+                      print("pressed");
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(12.sp),
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: const Color(0xff3797EF).withOpacity(.5),
+                          borderRadius: BorderRadius.circular(10.r)),
+                      child: Text(
+                        textAlign: TextAlign.center,
+                        "Sign up",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w800,
+                        ),
                       ),
                     ),
                   ),
@@ -100,7 +124,6 @@ TextEditingController _emailController = TextEditingController();
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-
                         "Log in with Facebook",
                         style: TextStyle(
                           color: Colors.blue,
@@ -134,12 +157,17 @@ TextEditingController _emailController = TextEditingController();
                 SizedBox(
                   width: 5.w,
                 ),
-                Text(
-                  "Sign in.",
-                  style: TextStyle(
-                    color: const Color(0xff262626),
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.w600,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    "Sign in.",
+                    style: TextStyle(
+                      color: const Color(0xff262626),
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 )
               ],
