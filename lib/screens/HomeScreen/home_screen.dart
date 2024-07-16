@@ -79,7 +79,7 @@ class _SplashScreenState extends State<HomeScreen> {
                 icon: SvgPicture.asset(
                   "assets/images/shop.svg",
                 ),
-                label: "",
+                label: "fff",
               ),
               BottomNavigationBarItem(
                   icon: CircleAvatar(
